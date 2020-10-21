@@ -1,7 +1,7 @@
 # Fast Average Color for Node.js
 [![NPM version](https://img.shields.io/npm/v/fast-average-color-node.svg)](https://www.npmjs.com/package/fast-average-color-node)
 [![NPM Downloads](https://img.shields.io/npm/dm/fast-average-color-node.svg?style=flat)](https://www.npmjs.org/package/fast-average-color-node)
-[![Dependency Status](https://img.shields.io/david/fast-average-color-node/fast-average-color-node.svg)](https://david-dm.org/fast-average-color-node/fast-average-color-node)
+[![Dependency Status](https://img.shields.io/david/fast-average-color/fast-average-color-node.svg)](https://david-dm.org/fast-average-color/fast-average-color-node)
 
 A simple library that calculates the average color of any images for Node.js.
 
