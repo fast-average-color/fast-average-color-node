@@ -34,7 +34,7 @@ printAverageColor();
 #### Parameters
 ```js
 /**
- * @param {string | Buffer} filename, Buffer or data64 string
+ * @param {string | Buffer} [filename] filename, Buffer or data64 string
  * @param {Object} [options]
  * @param {number[]}  [options.defaultColor=[0, 0, 0, 0]]
  * @param {number[]}  [options.ignoredColor] [red (0-255), green (0-255), blue (0-255), alpha (0-255)]
