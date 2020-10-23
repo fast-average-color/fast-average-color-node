@@ -30,7 +30,8 @@
   "typings": "./dist/index.d.ts",
   "scripts": {
     "test": "jest",
-    "build": "tsc -p tsconfig.json"
+    "build": "tsc -p tsconfig.json",
+    "prepare": "npm run build"
   },
   "author": {
     "name": "Denis Seleznev",
