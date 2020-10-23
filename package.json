@@ -1,6 +1,6 @@
 {
   "name": "fast-average-color-node",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "A simple library that calculates the average color of images, videos and canvas in Node.js.",
   "main": "dist/index.js",
   "keywords": [
@@ -11,7 +11,7 @@
   ],
   "dependencies": {
     "canvas": "^2.6.1",
-    "fast-average-color": "^6.1.1"
+    "fast-average-color": "^6.2.0"
   },
   "files": [
     "src",
