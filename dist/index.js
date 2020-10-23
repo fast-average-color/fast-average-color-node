@@ -14,6 +14,6 @@ async function getAverageColor(filename, options) {
     const context = canvas.getContext('2d');
     context.drawImage(image, 0, 0);
     const imageData = context.getImageData(0, 0, width, height);
-    return fac.getColorFromArray4(imageData.data, options);
+    return fac.prepareResult(fac.getColorFromArray4(imageData.data, options));
 }
 exports.getAverageColor = getAverageColor;
