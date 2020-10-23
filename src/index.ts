@@ -3,7 +3,7 @@ import FastAverageColor from 'fast-average-color';
 
 const fac = new FastAverageColor();
 
-export async function getAverageColor(filename: string | Buffer, options?: IFastAverageColorOptions): Promise<IFastAverageColorRgba> {
+export async function getAverageColor(filename: string | Buffer, options?: IFastAverageColorOptions): Promise<IFastAverageColorResult> {
     const image = await loadImage(filename);
     const { width, height } = image;
 
@@ -13,5 +13,5 @@ export async function getAverageColor(filename: string | Buffer, options?: IFast
 
     const imageData = context.getImageData(0, 0, width, height);
 
-    return fac.getColorFromArray4(imageData.data, options);
+    return fac.prepareResult(fac.getColorFromArray4(imageData.data, options));
 }
