@@ -42,4 +42,30 @@ describe('API', () => {
         const result = await getAverageColor(fruitsImage);
         expect(result.value).toStrictEqual(fruitsAverageColor);
     });
+
+    it('getAverageColor(), options: left, top, width, height', async() => {
+        const result1 = await getAverageColor(fruitsImage, { left: 0, top: 0, width: 100, height: 100 });
+        expect(result1.value).toStrictEqual([
+            248,
+            231,
+            21,
+            255,
+        ]);
+
+        const result2 = await getAverageColor(fruitsImage, { left: 133, top: 0, width: 100, height: 100 });
+        expect(result2.value).toStrictEqual([
+            255,
+            133,
+            0,
+            255
+        ]);
+
+        const result3 = await getAverageColor(fruitsImage, { left: 450, top: 0, width: 50, height: 100 });
+        expect(result3.value).toStrictEqual([
+            250,
+            30,
+            3,
+            255
+        ]);
+    });
 });
