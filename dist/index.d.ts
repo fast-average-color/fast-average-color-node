@@ -1,3 +1,3 @@
 /// <reference types="node" />
-/// <reference types="fast-average-color" />
+import { IFastAverageColorOptions, IFastAverageColorResult } from 'fast-average-color';
 export declare function getAverageColor(filename: string | Buffer, options?: IFastAverageColorOptions): Promise<IFastAverageColorResult>;
