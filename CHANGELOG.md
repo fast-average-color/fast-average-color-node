@@ -1,3 +1,6 @@
+# v2.1.0
+Updated deps in package.json
+
 # v2.0.0
 - `canvas` replaced with `sharp` package for Apple M1 support.
 - Added support for `mode` option. `mode: 'speed'` by default.

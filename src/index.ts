@@ -1,12 +1,12 @@
 import sharp from 'sharp';
-import { default as FastAverageColor, IFastAverageColorOptions, IFastAverageColorResult } from 'fast-average-color';
+import { default as FastAverageColor, FastAverageColorOptions, FastAverageColorResult } from 'fast-average-color';
 
 const fac = new FastAverageColor();
 
 const MIN_SIZE = 10;
 const MAX_SIZE = 100;
 
-function prepareSizeAndPosition(originalSize: { width: number; height: number; }, options: IFastAverageColorOptions) {
+function prepareSizeAndPosition(originalSize: { width: number; height: number; }, options: FastAverageColorOptions) {
     const srcLeft = options.left ?? 0;
     const srcTop = options.top ?? 0;
     const srcWidth = options.width ?? originalSize.width;
@@ -56,7 +56,7 @@ function prepareSizeAndPosition(originalSize: { width: number; height: number; }
     };
 }
 
-export async function getAverageColor(filename: string | Buffer, options: IFastAverageColorOptions = {}): Promise<IFastAverageColorResult> {
+export async function getAverageColor(filename: string | Buffer, options: FastAverageColorOptions = {}): Promise<FastAverageColorResult> {
     let input = filename;
 
     if (typeof filename === 'string') {
