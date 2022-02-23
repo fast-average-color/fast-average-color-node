@@ -22,7 +22,7 @@ import { getAverageColor } from 'fast-average-color-node';
 async function printAverageColor() {
     const color = await getAverageColor('./image.png');
     console.log(color);
-});
+};
 
 printAverageColor();
 ```
