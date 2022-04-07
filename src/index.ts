@@ -1,4 +1,5 @@
 import sharp from 'sharp';
+import fetch from 'node-fetch';
 import { default as FastAverageColor, FastAverageColorOptions, FastAverageColorResult } from 'fast-average-color';
 
 const fac = new FastAverageColor();
@@ -56,14 +57,18 @@ function prepareSizeAndPosition(originalSize: { width: number; height: number; }
     };
 }
 
-export async function getAverageColor(filename: string | Buffer, options: FastAverageColorOptions = {}): Promise<FastAverageColorResult> {
-    let input = filename;
+export async function getAverageColor(resource: string | Buffer, options: FastAverageColorOptions = {}): Promise<FastAverageColorResult> {
+    let input = resource;
 
-    if (typeof filename === 'string') {
-        const base64 = filename.split(/^data:image\/.*?;base64,/)[1];
+    if (typeof resource === 'string') {
+        const base64 = resource.split(/^data:image\/.*?;base64,/)[1];
 
         if (base64) {
             input = Buffer.from(base64, 'base64');
+        } else if (resource.search(/^https?:\/\//) !== -1) {
+            const response = await fetch(resource);
+            const arrayBuffer = await response.arrayBuffer();
+            input = Buffer.from(arrayBuffer);
         }
     }
 

@@ -5,6 +5,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getAverageColor = void 0;
 const sharp_1 = __importDefault(require("sharp"));
+const node_fetch_1 = __importDefault(require("node-fetch"));
 const fast_average_color_1 = __importDefault(require("fast-average-color"));
 const fac = new fast_average_color_1.default();
 const MIN_SIZE = 10;
@@ -52,13 +53,18 @@ function prepareSizeAndPosition(originalSize, options) {
         destHeight
     };
 }
-async function getAverageColor(filename, options = {}) {
+async function getAverageColor(resource, options = {}) {
     var _a, _b;
-    let input = filename;
-    if (typeof filename === 'string') {
-        const base64 = filename.split(/^data:image\/.*?;base64,/)[1];
+    let input = resource;
+    if (typeof resource === 'string') {
+        const base64 = resource.split(/^data:image\/.*?;base64,/)[1];
         if (base64) {
             input = Buffer.from(base64, 'base64');
+        }
+        else if (resource.search(/^https?:\/\//) !== -1) {
+            const response = await (0, node_fetch_1.default)(resource);
+            const arrayBuffer = await response.arrayBuffer();
+            input = Buffer.from(arrayBuffer);
         }
     }
     const left = (_a = options.left) !== null && _a !== void 0 ? _a : 0;
