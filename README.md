@@ -6,7 +6,7 @@
 A simple library that calculates the average color of any images for Node.js.
 
 ## Install
-`npm i save fast-average-color-node`
+`npm i --save fast-average-color-node`
 
 ## Using
 ```js
