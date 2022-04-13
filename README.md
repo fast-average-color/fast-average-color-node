@@ -5,6 +5,19 @@
 
 A simple library that calculates the average color of any images for Node.js.
 
+## Supported formats:
+- `jpeg`
+- `png`
+- `webp`
+- `gif`
+- `svg`
+
+## Source
+- filename
+- url
+- Buffer
+- base64 string
+
 ## Install
 `npm i --save fast-average-color-node`
 
