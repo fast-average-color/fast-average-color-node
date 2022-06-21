@@ -1,3 +1,6 @@
+# v2.3.0
+- Updated deps in package.json
+
 # v2.2.0
 - Added support for absolute urls
 - Updated deps in package.json

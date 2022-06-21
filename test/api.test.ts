@@ -22,7 +22,7 @@ describe('API', () => {
         expect(result64.value).toStrictEqual(fruitsSpeedAverageColor);
     });
 
-    it('getAverageColor(), absolute url', async() => {        
+    it('getAverageColor(), absolute url', async() => {
         const result64 = await getAverageColor(fruitsUrl);
         expect(result64.value).toStrictEqual(fruitsSpeedAverageColor);
     });
@@ -39,7 +39,7 @@ describe('API', () => {
         try {
             await getAverageColor('./unknown_file');
         } catch (e) {
-            expect((e as Error).message).toEqual('Input file is missing');
+            expect((e as Error).message).toEqual('Input file is missing: ./unknown_file');
         }
     });
 
