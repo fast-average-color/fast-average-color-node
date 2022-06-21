@@ -1,6 +1,6 @@
 {
   "name": "fast-average-color-node",
-  "version": "2.2.0",
+  "version": "2.3.0",
   "description": "A simple library that calculates the average color of images in Node.js.",
   "main": "dist/index.js",
   "keywords": [
@@ -11,8 +11,16 @@
   ],
   "dependencies": {
     "fast-average-color": "^7.1.0",
-    "node-fetch": "^2.6.7",
-    "sharp": "^0.30.3"
+    "node-fetch": "^2.6.1",
+    "sharp": "^0.30.6"
+  },
+  "devDependencies": {
+    "@types/jest": "^28.1.2",
+    "@types/node-fetch": "^2.6.2",
+    "@types/sharp": "^0.30.4",
+    "jest": "^28.1.1",
+    "ts-jest": "^28.0.5",
+    "typescript": "^4.7.4"
   },
   "files": [
     "src",
@@ -21,14 +29,6 @@
     "README.md",
     "LICENSE"
   ],
-  "devDependencies": {
-    "@types/jest": "^27.4.1",
-    "@types/node-fetch": "^2.6.1",
-    "@types/sharp": "^0.30.1",
-    "jest": "^27.5.1",
-    "ts-jest": "^27.1.4",
-    "typescript": "^4.6.3"
-  },
   "engines": {
     "node": ">= 12"
   },
