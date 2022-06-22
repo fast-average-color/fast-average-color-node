@@ -1,3 +1,6 @@
+# v2.4.0
+- Updated deps in package.json
+
 # v2.3.0
 - Updated deps in package.json
 
