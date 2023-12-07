@@ -2,8 +2,7 @@ import { readFileSync } from 'fs';
 import { getAverageColor } from '../src/index';
 
 describe('API', () => {
-    const fruitsSpeedAverageColor = [231, 147, 49, 255];
-    const fruitsPrecisionAverageColor = [232, 148, 50, 255];
+    const fruitsAverageColor = [232, 148, 50, 255];
 
     const imagePath = './test/images/';
     const fruitsUrl = 'https://github.com/fast-average-color/fast-average-color-node/raw/main/test/images/fruits.png';
@@ -13,24 +12,24 @@ describe('API', () => {
     it('getAverageColor(), file', async() => {
         const result = await getAverageColor(fruitsImage);
 
-        expect(result.value).toStrictEqual(fruitsSpeedAverageColor);
+        expect(result.value).toStrictEqual(fruitsAverageColor);
     });
 
     it('getAverageColor(), data64', async() => {
         const data64 = readFileSync(fruitsBase64, 'utf8');
         const result64 = await getAverageColor(data64);
-        expect(result64.value).toStrictEqual(fruitsSpeedAverageColor);
+        expect(result64.value).toStrictEqual(fruitsAverageColor);
     });
 
     it('getAverageColor(), absolute url', async() => {
         const result64 = await getAverageColor(fruitsUrl);
-        expect(result64.value).toStrictEqual(fruitsSpeedAverageColor);
+        expect(result64.value).toStrictEqual(fruitsAverageColor);
     });
 
     it('getAverageColor(), file, mode: precision', async() => {
         const result = await getAverageColor(fruitsImage, { mode: 'precision' });
 
-        expect(result.value).toStrictEqual(fruitsPrecisionAverageColor);
+        expect(result.value).toStrictEqual(fruitsAverageColor);
     });
 
     it('getAverageColor(), unknown file', async() => {
@@ -47,14 +46,14 @@ describe('API', () => {
         const buffer = readFileSync(fruitsImage);
         const result = await getAverageColor(buffer);
 
-        expect(result.value).toStrictEqual(fruitsSpeedAverageColor);
+        expect(result.value).toStrictEqual(fruitsAverageColor);
     });
 
     it('getAverageColor(), Buffer, mode: precision', async() => {
         const buffer = readFileSync(fruitsImage);
         const result = await getAverageColor(buffer, { mode: 'precision' });
 
-        expect(result.value).toStrictEqual(fruitsPrecisionAverageColor);
+        expect(result.value).toStrictEqual(fruitsAverageColor);
     });
 
     it('getAverageColor(), options: left, top, width, height', async() => {
