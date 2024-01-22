@@ -1,6 +1,10 @@
 # v2.7.0
 - Updated deps in package.json
 
+# v3.0.0
+- Updated sharp v0.33.2
+- Drop support for Node.js 14 and 16
+
 # v2.6.0
 - Updated deps in package.json
 
