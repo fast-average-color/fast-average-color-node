@@ -1,5 +1,4 @@
 import sharp from 'sharp';
-import fetch from 'node-fetch';
 import { FastAverageColor, FastAverageColorOptions, FastAverageColorResult } from 'fast-average-color';
 
 const fac = new FastAverageColor();
