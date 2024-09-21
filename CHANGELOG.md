@@ -1,3 +1,6 @@
+# v3.1.0
+- Removed node-fetch package in deps
+
 # v3.0.0
 - Updated sharp v0.33.2
 - Drop support for Node.js 14 and 16
