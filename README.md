@@ -1,4 +1,4 @@
-# [Fast Average Color](https://github.com/fast-average-color/fast-average-color/) for Node.js
+# 🍏🍊🍅 [Fast Average Color](https://github.com/fast-average-color/fast-average-color/) for Node.js
 [![NPM version](https://img.shields.io/npm/v/fast-average-color-node.svg)](https://www.npmjs.com/package/fast-average-color-node)
 [![NPM Downloads](https://img.shields.io/npm/dm/fast-average-color-node.svg?style=flat)](https://www.npmjs.org/package/fast-average-color-node)
 [![install size](https://packagephobia.com/badge?p=fast-average-color-node)](https://packagephobia.com/result?p=fast-average-color-node)
