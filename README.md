@@ -85,3 +85,6 @@ MIT License
 ## Links
 - [fast-average-color](https://github.com/fast-average-color/fast-average-color/)
 
+## Friends
+- [Check device online](https://checkdevice.online/?from=github-fac-node)
+
