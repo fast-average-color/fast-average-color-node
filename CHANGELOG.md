@@ -1,3 +1,6 @@
+# v3.2.0
+- Updated deps in package.json
+
 # v3.1.0
 - Removed node-fetch package in deps
 
