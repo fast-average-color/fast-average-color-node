@@ -21,9 +21,10 @@ describe('API', () => {
         expect(result64.value).toStrictEqual(fruitsAverageColor);
     });
 
-    it('getAverageColor(), absolute url', async() => {
-        const result64 = await getAverageColor(fruitsUrl);
-        expect(result64.value).toStrictEqual(fruitsAverageColor);
+    it.each(['http', 'https'])('getAverageColor(), %s URL', async(protocol) => {
+        const url = fruitsUrl.replace(/^https:/, `${protocol}:`);
+        const result = await getAverageColor(url);
+        expect(result.value).toStrictEqual(fruitsAverageColor);
     });
 
     it('getAverageColor(), file, mode: precision', async() => {

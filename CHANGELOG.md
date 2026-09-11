@@ -1,6 +1,10 @@
 # v4.0.0
+- Breaking: requires Node.js 20.9.0 or later, matching sharp 0.35.4.
 - Breaking: the package is now ESM-only. Replace `require()` with `import` or dynamic `import()`.
 - Added package exports for the ESM entry point and TypeScript declarations. Import the package by name; internal subpaths are no longer exported.
+- Added public Node.js types without DOM dependencies.
+- Fixed raw Buffer handling to respect byte offsets and lengths.
+- Improved speed mode for narrow images by allowing the resized short side to be one pixel.
 
 # v3.3.0
 - Updated deps in package.json

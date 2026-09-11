@@ -1,0 +1,13 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "rootDir": ".",
+    "noEmit": true,
+    "types": ["node", "jest"],
+    "paths": {
+      "fast-average-color-node": ["./src/index.ts"]
+    }
+  },
+  "include": ["test/**/*.ts"],
+  "exclude": ["node_modules", "dist"]
+}

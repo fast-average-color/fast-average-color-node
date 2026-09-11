@@ -14,7 +14,10 @@
     "fast",
     "average",
     "color",
-    "colour"
+    "colour",
+    "average-color",
+    "dominant-color",
+    "color-extraction"
   ],
   "dependencies": {
     "fast-average-color": "^9.6.0",
@@ -34,14 +37,15 @@
     "LICENSE"
   ],
   "engines": {
-    "node": "^18.17.0 || ^20.3.0 || >=21.0.0"
+    "node": ">=20.9.0"
   },
   "typings": "./dist/index.d.ts",
   "scripts": {
-    "test": "npm run typecheck && npm run build && node --experimental-vm-modules node_modules/jest/bin/jest.js --config ./jest.config.js .",
+    "test": "npm run typecheck && npm run build && npm run typecheck:consumer && node --experimental-vm-modules node_modules/jest/bin/jest.js --config ./jest.config.js .",
     "build": "tsc -p tsconfig.json",
     "prepare": "npm run build",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit && tsc -p tsconfig.test.json",
+    "typecheck:consumer": "tsc -p test/types/tsconfig.json"
   },
   "author": {
     "name": "Denis Seleznev",

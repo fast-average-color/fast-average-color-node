@@ -1,14 +1,21 @@
 import sharp from 'sharp';
-import { FastAverageColor, type FastAverageColorOptions, type FastAverageColorResult } from 'fast-average-color';
+import { FastAverageColor } from 'fast-average-color';
+import type { FastAverageColorOptions, FastAverageColorResult } from './types.js';
+
+export type {
+    FastAverageColorRgb,
+    FastAverageColorRgba,
+    FastAverageColorRgbaWithThreshold,
+    FastAverageColorIgnoredColor,
+    FastAverageColorOptions,
+    FastAverageColorResult,
+} from './types.js';
 
 const fac = new FastAverageColor();
 
-const MIN_SIZE = 10;
 const MAX_SIZE = 100;
 
 function prepareSizeAndPosition(originalSize: { width: number; height: number; }, options: FastAverageColorOptions) {
-    const srcLeft = options.left ?? 0;
-    const srcTop = options.top ?? 0;
     const srcWidth = options.width ?? originalSize.width;
     const srcHeight = options.height ?? originalSize.height;
 
@@ -17,8 +24,6 @@ function prepareSizeAndPosition(originalSize: { width: number; height: number; }
 
     if (options.mode === 'precision') {
         return {
-            srcLeft,
-            srcTop,
             srcWidth,
             srcHeight,
             destWidth,
@@ -31,24 +36,19 @@ function prepareSizeAndPosition(originalSize: { width: number; height: number; }
     if (srcWidth > srcHeight) {
         factor = srcWidth / srcHeight;
         destWidth = MAX_SIZE;
-        destHeight = Math.round(destWidth / factor);
+        destHeight = Math.max(1, Math.round(destWidth / factor));
     } else {
         factor = srcHeight / srcWidth;
         destHeight = MAX_SIZE;
-        destWidth = Math.round(destHeight / factor);
+        destWidth = Math.max(1, Math.round(destHeight / factor));
     }
 
-    if (
-        destWidth > srcWidth || destHeight > srcHeight ||
-        destWidth < MIN_SIZE || destHeight < MIN_SIZE
-    ) {
+    if (destWidth > srcWidth || destHeight > srcHeight) {
         destWidth = srcWidth;
         destHeight = srcHeight;
     }
 
     return {
-        srcLeft,
-        srcTop,
         srcWidth,
         srcHeight,
         destWidth,
@@ -74,7 +74,7 @@ export async function getAverageColor(resource: string | Buffer, options: FastAv
     const left = options.left ?? 0;
     const top = options.top ?? 0;
 
-    let pipe = await sharp(input);
+    let pipe = sharp(input);
 
     const metadata = await pipe.metadata();
 
@@ -93,7 +93,5 @@ export async function getAverageColor(resource: string | Buffer, options: FastAv
     }
 
     const buffer = await pipe.ensureAlpha().raw().toBuffer();
-    const pixelArray = new Uint8Array(buffer.buffer);
-
-    return fac.prepareResult(fac.getColorFromArray4(pixelArray, options));
+    return fac.prepareResult(fac.getColorFromArray4(buffer, options));
 }
