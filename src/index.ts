@@ -1,5 +1,5 @@
 import sharp from 'sharp';
-import { FastAverageColor, FastAverageColorOptions, FastAverageColorResult } from 'fast-average-color';
+import { FastAverageColor, type FastAverageColorOptions, type FastAverageColorResult } from 'fast-average-color';
 
 const fac = new FastAverageColor();
 

@@ -22,6 +22,23 @@ A simple library that calculates the average color of any images for Node.js.
 `npm i --save fast-average-color-node`
 
 ## Using
+Starting with v4, this package is ESM-only. Use `import` in an `.mjs` file
+or set `"type": "module"` in your project's `package.json`.
+
+For CommonJS projects, use dynamic `import()` inside an async function:
+
+```js
+async function printAverageColor() {
+    const { getAverageColor } = await import('fast-average-color-node');
+    console.log(await getAverageColor('./image.png'));
+}
+
+printAverageColor();
+```
+
+`require('fast-average-color-node')` is no longer supported.
+
+### ESM examples
 ```js
 import { getAverageColor } from 'fast-average-color-node';
 
@@ -87,4 +104,3 @@ MIT License
 
 ## Friends
 - [Check device online](https://checkdevice.online/?from=github-fac-node)
-

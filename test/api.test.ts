@@ -1,5 +1,5 @@
 import { readFileSync } from 'fs';
-import { getAverageColor } from '../src/index';
+import { getAverageColor } from 'fast-average-color-node';
 
 describe('API', () => {
     const fruitsAverageColor = [232, 148, 50, 255];
